@@ -29,4 +29,14 @@ enum SectionKind: Int, CaseIterable {
             return .fractionalWidth(0.45)
         }
     }
+    var sectionTitle: String {
+        switch self {
+        case .first:
+            return "First Section"
+        case .second:
+            return "Second Section"
+        case .third:
+            return "Third Section"
+        }
+    }
 }

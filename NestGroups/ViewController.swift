@@ -24,7 +24,10 @@ class ViewController: UIViewController {
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.backgroundColor = .systemBackground
+        
         collectionView.register(LabelCell.self, forCellWithReuseIdentifier: LabelCell.reuseIdentifier)
+        collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseIdentifier)
+        
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(collectionView)
     }
@@ -56,11 +59,17 @@ class ViewController: UIViewController {
             let section = NSCollectionLayoutSection(group: nestedGroup)
             section.orthogonalScrollingBehavior = .continuous //keep scrolling, no pages
             
+            //header
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+            section.boundarySupplementaryItems = [header]
+            
             return section
         }
         return layout
     }
     private func configureDataSource() {
+        // dequeue cell
         dataSource = DataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LabelCell.reuseIdentifier, for: indexPath) as? LabelCell else {
                 fatalError("could not dequeue LabelCell")
@@ -70,8 +79,21 @@ class ViewController: UIViewController {
             cell.layer.cornerRadius = 13
             return cell
         })
+        //dequeue header
+        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderView.reuseIdentifier, for: indexPath) as? HeaderView, let sectionKind = SectionKind(rawValue: indexPath.section) else {
+                fatalError("could not dequeue header view")
+            }
+
+            header.textLabel.text = sectionKind.sectionTitle
+            header.textLabel.textColor = .systemPink
+            header.textLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+            return header
+        }
+        
         var snapshot = NSDiffableDataSourceSnapshot<SectionKind, Int>()
         snapshot.appendSections([.first, .second, .third])
+        
         snapshot.appendItems(Array(1...20), toSection: .first)
         snapshot.appendItems(Array(21...40), toSection: .second)
         snapshot.appendItems(Array(41...60), toSection: .third)

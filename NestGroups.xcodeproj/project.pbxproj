@@ -16,6 +16,7 @@
 		C62F1E1024F4035B00B8F503 /* NestGroupsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F1E0F24F4035B00B8F503 /* NestGroupsTests.swift */; };
 		C62F1E1C24F4038A00B8F503 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F1E1B24F4038A00B8F503 /* LabelCell.swift */; };
 		C62F1E1E24F40B3100B8F503 /* SectionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F1E1D24F40B3100B8F503 /* SectionKind.swift */; };
+		C62F1E2024F4127F00B8F503 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F1E1F24F4127F00B8F503 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		C62F1E1124F4035B00B8F503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C62F1E1B24F4038A00B8F503 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		C62F1E1D24F40B3100B8F503 /* SectionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionKind.swift; sourceTree = "<group>"; };
+		C62F1E1F24F4127F00B8F503 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				C62F1DFA24F4035800B8F503 /* SceneDelegate.swift */,
 				C62F1DFC24F4035800B8F503 /* ViewController.swift */,
 				C62F1E1B24F4038A00B8F503 /* LabelCell.swift */,
+				C62F1E1F24F4127F00B8F503 /* HeaderView.swift */,
 				C62F1E1D24F40B3100B8F503 /* SectionKind.swift */,
 				C62F1DFE24F4035800B8F503 /* Main.storyboard */,
 				C62F1E0124F4035B00B8F503 /* Assets.xcassets */,
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C62F1E1E24F40B3100B8F503 /* SectionKind.swift in Sources */,
+				C62F1E2024F4127F00B8F503 /* HeaderView.swift in Sources */,
 				C62F1DFD24F4035800B8F503 /* ViewController.swift in Sources */,
 				C62F1DF924F4035800B8F503 /* AppDelegate.swift in Sources */,
 				C62F1E1C24F4038A00B8F503 /* LabelCell.swift in Sources */,
