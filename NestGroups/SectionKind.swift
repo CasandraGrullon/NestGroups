@@ -39,4 +39,14 @@ enum SectionKind: Int, CaseIterable {
             return "Third Section"
         }
     }
+    var orthogonalBehaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior {
+      switch self {
+      case .first:
+        return .continuous
+      case .second:
+        return .groupPaging
+      case .third:
+        return .groupPagingCentered
+      }
+    }
 }

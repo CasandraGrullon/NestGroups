@@ -58,7 +58,7 @@ class ViewController: UIViewController {
             
             //section
             let section = NSCollectionLayoutSection(group: nestedGroup)
-            section.orthogonalScrollingBehavior = .continuous //keep scrolling, no pages
+            section.orthogonalScrollingBehavior = sectionKind.orthogonalBehaviour
             
             //header
             let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44))
